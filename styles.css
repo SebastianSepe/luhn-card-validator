@@ -1,0 +1,302 @@
+body {
+  font: 16px "Helvetica Neue", Helvetica, sans-serif;
+  background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  text-align: center;
+  padding: 40px 0 30px;
+}
+
+.header__title {
+  font-family:'Montserrat','Helvetica Neue',Helvetica,sans-serif; /* o 'Playfair Display', serif */
+  font-size:48px;   /* un poco más grande para destacar */
+  font-weight:600;  /* Montserrat: 600 queda sólido; Playfair: 600 también */
+  letter-spacing:1px;
+  margin:0;
+}
+
+.controls{
+  display:flex;
+  flex-direction:column;   /* combo arriba, botón abajo */
+  align-items:center;
+  gap:18px;
+  margin:30px 0;
+}
+
+.controls__group{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.controls__label{
+  font-size:16px;
+  font-weight:500;
+  color:#fff;              /* texto blanco sobre fondo degradado */
+}
+
+.controls__select{
+  font:inherit;
+  padding:6px 10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  box-shadow:0 2px 4px rgba(0,0,0,.1) inset;
+  background:#fff;
+  cursor:pointer;
+}
+
+.controls__select:focus{
+  outline:2px solid #1976d2;
+}
+
+.controls__btn{
+  font:inherit;
+  padding:10px 24px;
+  background: linear-gradient(0deg,rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);          /* naranja vivo, contraste alto */
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 4px 8px rgba(0,0,0,.15);
+  transition:background .2s, transform .1s;
+}
+
+.controls__btn:hover{background: linear-gradient(0deg,rgba(253, 187, 45, 1) 0%, rgba(4, 193, 195, 1) 100%)}   /* tono un poco más oscuro */
+.controls__btn:active{transform:scale(.97);}
+
+
+.panel {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-bottom: 60px;
+}
+
+.card {
+  --h-pad: 30px;
+  --v-pad: 30px;
+  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: var(--v-pad) var(--h-pad);
+  box-sizing: border-box;
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  font-family: "Courier New", Courier, monospace;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.card--front {
+  width: 425px;
+  height: 270px;
+  aspect-ratio: 425 / 270;
+}
+
+.card--vertical {
+  width: 270px;
+  height: 425px;
+  aspect-ratio: 270 / 425;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card--vert-num {
+  width: 425px;
+  height: 270px;
+  aspect-ratio: 425 / 270;
+}
+
+.card__number {
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card__number--inline span {
+  display: inline-block;
+}
+
+.card__number--column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.card--vert-num .card__number {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.card--vert-num .card__number span {
+  display: block;
+  width: 4ch;
+  text-align: left;
+}
+
+.card--vert-num .card__number::before,
+.card--vert-num .card__number::after {
+  content: "";
+  position: absolute;
+  left: -15px;
+  width: 6px;
+  height: 100%;
+  border-left: 2px solid rgba(255, 255, 255, 0.6);
+  transform: skewY(-3deg);
+}
+
+.card__expiry-date {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card--vert-num .card__expiry-date {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #fff;
+  z-index: 2;
+}
+
+.card__owner {
+  text-align: left;
+  font-size: 16px;
+}
+
+.card__logo {
+  position: absolute;
+  width: 55px;
+  object-fit: contain;
+}
+
+.card--front:not(.card--vert-num):not(.card--vertical) .card__logo {
+  bottom: 20px;
+  right: 20px;
+}
+
+.card--vertical .card__logo {
+  bottom: 20px;
+  left: 20px;
+}
+
+.card--vert-num .card__logo {
+  top: 100px;
+  left: 20px;
+}
+
+@media (max-width: 768px) {
+  .panel {
+    gap: 24px;
+  }
+
+  .card {
+    --h-pad: 24px;
+    --v-pad: 24px;
+  }
+
+  .card--front,
+  .card--vert-num {
+    width: 340px;
+    height: 215px;
+    aspect-ratio: 340 / 215;
+  }
+
+  .card--vertical {
+    width: 220px;
+    height: 380px;
+    aspect-ratio: 220 / 380;
+  }
+
+  .card__number {
+    font-size: 24px;
+  }
+
+  .card__expiry-date {
+    font-size: 12px;
+  }
+
+  .card__owner {
+    font-size: 14px;
+  }
+
+  .card__logo {
+    width: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .card {
+    --h-pad: 20px;
+    --v-pad: 20px;
+  }
+
+  .card__number {
+    font-size: 20px;
+  }
+
+  .card__expiry-date {
+    font-size: 11px;
+  }
+
+  .card__owner {
+    font-size: 13px;
+  }
+
+  .card__logo {
+    width: 40px;
+  }
+
+  .card--front:not(.card--vertical),
+  .card--vert-num {
+    width: 95vw;
+    height: auto;
+  }
+
+  .card--vertical {
+    width: 70vw;
+    height: auto;
+  }
+
+  .card--front:not(.card--vertical):not(.card--vert-num) .card__logo {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .card--vert-num .card__logo {
+    top: 80px;
+    left: 16px;
+  }
+
+  .card--vertical .card__logo {
+    bottom: 16px;
+    left: 16px;
+  }
+}

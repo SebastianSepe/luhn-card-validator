@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Card Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="/src/img/favicon.png" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">Credit Card Examples</h1>
+    <p>Double-click on a card to enter the number manually or press <em>Generate</em>.</p>
+  </header>
+
+<div class="controls">
+  <div class="controls__group">
+    <label class="controls__label" for="lenSelect">Nº of digits:</label>
+    <select id="lenSelect" class="controls__select">
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16" selected>16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+    </select>
+  </div>
+
+  <button id="btnGenerar" class="controls__btn">Generate</button>
+</div>
+
+  <div class="panel">
+    <div class="card card--front" data-length="16">
+      <div class="card__number card__number--inline"></div>
+      <div class="card__expiry-date">10/28</div>
+      <div class="card__owner">Paca Garte</div>
+      <img class="card__logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa logo" />
+    </div>
+
+    <div class="card card--front card--vertical" data-length="16">
+      <div class="card__number card__number--column"></div>
+      <div class="card__expiry-date">05/30</div>
+      <div class="card__owner">Tomas Cao</div>
+      <img class="card__logo" src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard logo" />
+    </div>
+
+    <div class="card card--front card--vert-num" data-length="16">
+      <div class="card__number"></div>
+      <div class="card__expiry-date">03/31</div>
+      <div class="card__owner">Elver Galarga</div>
+      <img class="card__logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa logo" />
+    </div>
+  </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
